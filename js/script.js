@@ -61,8 +61,13 @@ const root = new Vue({
 
         },
         addTask() {
-            this.toDoList.push(this.newTask)
+            this.toDoList.push(this.newTask);
+            this.newTask = ''
+        },
 
+        reverseDone(i) {
+
+            this.toDoList[i].done = !this.toDoList[i].done
 
         }
     }

@@ -24,23 +24,31 @@
 
 <body>
     <main id="root" class="container">
+        <header class="mb-4">
+            <h1 class="display
+            1 text-center fw-semibold">LISTA DELLE COSE DA FARE</h1>
+        </header>
+        <div id="lista-della-spesa-box">
 
-        <ul class="list-group">
-            <li v-for="(task , i) in toDoList"
-                class="list-group-item d-flex justify-content-between align-items-center">
-                <del v-if="task.done === true">{{task.text}}</del>
-                <span v-else>{{task.text}}</span>
 
-                <button @click="removeTask" type="button" class="btn-close" aria-label="Close"></button>
-            </li>
+            <ul class="list-group">
+                <li @click="reverseDone(i)" v-for="(task , i) in toDoList"
+                    class="list-group-item d-flex justify-content-between align-items-center">
+                    <del v-if="task.done === true">{{task.text}}</del>
+                    <span v-else>{{task.text}}</span>
 
-        </ul>
+                    <button @click="removeTask" type="button" class="btn-close  " aria-label="Close"></button>
+                </li>
 
-        <div class="input-group mb-3">
-            <input @keyup.enter="addTask" v-model="newTask.text" type="text" class="form-control"
-                placeholder="Recipient's username" aria-label="Recipient's username" aria-describedby="basic-addon2">
-            <div class="input-group-append">
-                <button @click="addTask" class="btn btn-outline-secondary" type="button">Aggiungi</button>
+            </ul>
+
+            <div class="input-group mb-3">
+                <input @keyup.enter="addTask" v-model="newTask.text" type="text" class="form-control"
+                    placeholder="aggiungi qualcosa da fare" aria-label="aggiungi qualcosa da fare"
+                    aria-describedby="basic-addon2">
+                <div class="input-group-append">
+                    <button @click="addTask" class="btn  btn-success" type="button">Aggiungi</button>
+                </div>
             </div>
         </div>
     </main>
