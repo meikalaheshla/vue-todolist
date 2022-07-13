@@ -29,7 +29,8 @@ const root = new Vue({
     name: 'list',
     data: {
         newTask: {
-            done: false
+            done: false,
+            text: ''
         },
 
         toDoList: [
@@ -61,13 +62,22 @@ const root = new Vue({
 
         },
         addTask() {
-            this.toDoList.push(this.newTask);
-            this.newTask = ''
+            if (this.newTask) {
+
+                this.toDoList.push(this.newTask);
+                this.newTask = {
+                    done: false, text: ''
+                }
+            }
         },
 
         reverseDone(i) {
 
             this.toDoList[i].done = !this.toDoList[i].done
+
+        }
+        , clearList() {
+            this.toDoList = [];
 
         }
     }
