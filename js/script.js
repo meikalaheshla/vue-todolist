@@ -28,6 +28,7 @@ const root = new Vue({
     el: '#root',
     name: 'list',
     data: {
+        showInput: false,
         newTask: {
             done: false,
             text: ''
@@ -65,6 +66,7 @@ const root = new Vue({
             if (this.newTask) {
 
                 this.toDoList.push(this.newTask);
+
                 this.newTask = {
                     done: false, text: ''
                 }
@@ -78,6 +80,14 @@ const root = new Vue({
         }
         , clearList() {
             this.toDoList = [];
+            this.showInput = !this.showInput;
+
+        }, toggleAdd() {
+            this.showInput = !this.showInput;
+            this.newTask = {
+                done: false, text: ''
+            }
+
 
         }
     }

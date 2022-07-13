@@ -37,12 +37,12 @@
                     <del v-if="task.done === true">{{task.text}}</del>
                     <span v-else>{{task.text}}</span>
 
-                    <button @click="removeTask" type="button" class="btn-close  " aria-label="Close"></button>
+                    <button @click="removeTask(i)" type="button" class="btn-close  " aria-label="Close"></button>
                 </li>
 
             </ul>
 
-            <div class="input-group mb-3">
+            <div v-if="showInput" class="input-group mb-3">
                 <input @keyup.enter="addTask" v-model="newTask.text" type="text" class="form-control"
                     placeholder="aggiungi qualcosa da fare" aria-label="aggiungi qualcosa da fare"
                     aria-describedby="basic-addon2">
@@ -51,6 +51,7 @@
                     <button @click="clearList" class="btn  btn-danger" type="button">Svuota lista</button>
                 </div>
             </div>
+            <button v-else @click="toggleAdd" class="btn  btn-success col-12" type="button">Aggiungi</button>
         </div>
     </main>
 
