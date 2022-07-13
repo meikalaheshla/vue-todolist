@@ -37,8 +37,8 @@
         </ul>
 
         <div class="input-group mb-3">
-            <input v-model="newTask.text" type="text" class="form-control" placeholder="Recipient's username"
-                aria-label="Recipient's username" aria-describedby="basic-addon2">
+            <input @keyup.enter="addTask" v-model="newTask.text" type="text" class="form-control"
+                placeholder="Recipient's username" aria-label="Recipient's username" aria-describedby="basic-addon2">
             <div class="input-group-append">
                 <button @click="addTask" class="btn btn-outline-secondary" type="button">Aggiungi</button>
             </div>
