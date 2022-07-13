@@ -28,6 +28,9 @@ const root = new Vue({
     el: '#root',
     name: 'list',
     data: {
+        newTask: {
+            done: false
+        },
 
         toDoList: [
             {
@@ -55,6 +58,11 @@ const root = new Vue({
     }, methods: {
         removeTask(i) {
             this.toDoList.splice(i, 1)
+
+        },
+        addTask() {
+            this.toDoList.push(this.newTask)
+
 
         }
     }
