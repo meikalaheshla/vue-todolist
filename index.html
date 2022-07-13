@@ -26,9 +26,9 @@
     <main id="root" class="container">
 
         <ul class="list-group">
-            <li class="list-group-item d-flex justify-content-between align-items-center">
-                <del></del>
-                <span></span>
+            <li v-for="task in toDoList" class="list-group-item d-flex justify-content-between align-items-center">
+                <del v-if="task.done === true">{{task.text}}</del>
+                <span v-else>{{task.text}}</span>
 
                 <button type="button" class="btn-close" aria-label="Close"></button>
             </li>

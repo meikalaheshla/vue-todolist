@@ -52,6 +52,5 @@ const root = new Vue({
             },
 
         ]
-    }
-
+    },
 })
