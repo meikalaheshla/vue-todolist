@@ -52,5 +52,10 @@ const root = new Vue({
             },
 
         ]
-    },
+    }, methods: {
+        removeTask(i) {
+            this.toDoList.splice(i, 1)
+
+        }
+    }
 })
